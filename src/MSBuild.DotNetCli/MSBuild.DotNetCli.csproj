@@ -1,11 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <AssemblyName>DanielWhite.MSBuild.DotNetCli</AssemblyName>
+    <OutputDir>$(OutputDir)\tasks</OutputDir>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.3.0" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.3.0" />
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Content Include="DanielWhite.MSBuild.DotNetCli.props" PackageFolder="build" />
   </ItemGroup>
 </Project>
