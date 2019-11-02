@@ -1,3 +1,3 @@
 ﻿<Project>
-  <UsingTask TaskName="DotNetCli" AssemblyFile="$(MSBuildThisFileDirectory)..\tasks\DanielWhite.MSBuild.DotNetCli.dll" />
+  <UsingTask TaskName="DotNetCli" AssemblyFile="$(MSBuildThisFileDirectory)..\lib\DanielWhite.MSBuild.DotNetCli.dll" />
 </Project>

@@ -1,4 +1,4 @@
-name: Build on Push
+name: Build & Test Package
 
 on: [push]
 
@@ -16,7 +16,7 @@ jobs:
         dotnet-version: 3.0.100
 
     - name: Restore
-      run: dotnet restore --configuration Release
+      run: dotnet restore --locked-mode
 
     - name: Build
       run: dotnet build --no-restore --configuration Release
@@ -26,7 +26,7 @@ jobs:
 
     - name: Create NuGet package
       run: dotnet pack --no-restore --no-build --output gen/package
-      
+
     - name: Collect NuGet package as artifact
       uses: actions/upload-artifact@v1
       with:
