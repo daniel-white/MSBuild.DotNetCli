@@ -1,11 +1,6 @@
-name: Publish NuGet Package
+name: Build
 
-on: 
-  push:
-    branches:
-      master
-    tags:
-      v1*
+on: [push]
 
 jobs:
   build:
@@ -37,6 +32,7 @@ jobs:
         name: nuget-package
         path: gen/package
 
-    - name: Publish on NuGet.org
-      run: dotnet nuget push gen/package/*.nupkg -k ${{secrets.NUGET_APIKEY}} -s https://api.nuget.org/v3/index.json
+    - name: Publish on MyGet.org
+      if: github.ref == 'refs/heads/master'
+      run: dotnet nuget push gen/package/*.nupkg -k ${{secrets.MYGET_APIKEY}} -s https://www.myget.org/F/daniel-white/api/v2/package
       
