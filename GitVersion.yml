@@ -1,6 +1,15 @@
 assembly-versioning-scheme: MajorMinorPatch
 mode: ContinuousDelivery
-branches: {}
+legacy-semver-padding: 2
+build-metadata-padding: 2
+branches:
+  master:
+    increment: Patch
+    tag: beta
+  release:
+    regex: release/
+    increment: Patch
+    tag: ''
 ignore:
   sha: []
 merge-message-formats: {}

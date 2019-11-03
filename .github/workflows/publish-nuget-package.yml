@@ -1,10 +1,14 @@
-name: Build & Test Package
+name: Publish NuGet Package
 
-on: [push]
+on: 
+  push:
+    branches:
+      master
+    tags:
+      v1*
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -32,4 +36,7 @@ jobs:
       with:
         name: nuget-package
         path: gen/package
+
+    - name: Publish on NuGet.org
+      run: dotnet nuget push gen/package/*.nupkg -k {{secrets.NUGET_APIKEY}} -s https://api.nuget.org/v3/index.json
       
