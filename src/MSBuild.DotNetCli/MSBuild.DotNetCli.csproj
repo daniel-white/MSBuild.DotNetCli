@@ -6,6 +6,12 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Description>A MSBuild task that allows dotnet CLI tools to run in all MSBuild environments.</Description>
+    <RepositoryUrl>https://github.com/daniel-white/MSBuild.DotNetCli</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="GitVersionTask" Version="5.1.1" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.3.0" />
